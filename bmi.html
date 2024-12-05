@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: 'Quicksand', sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        
+        h2,
+        h3 {
+          color: #00a2c6;
+        }
+        
+        header {
+            display: inline;
+        }
+        
+        footer {
+          padding: 20px;
+          color: white;
+          background-color:  #00597e;
+          text-align: center;
+          font-weight: bold;
+        }
+
+        .jumbotron {
+          font-size: 2rem;
+          padding: 203px;
+          background-color:#314860;
+          align-items: center;
+          text-align: center;
+          color: white;
+        }
+
+        .nav-list {
+          background-color: #00597e;
+          padding: 5px;
+          position: sticky;
+          top: 0;
+        }
+
+        .nav-list ul {
+          padding-left: 0;
+          display: flex;
+          justify-content: center;
+          gap: 2rem 1rem;
+        }
+
+        .nav-list li {  
+          list-style-type: none;
+        }
+
+        .nav-list li a {
+          padding: 0.5rem 1.5rem;
+          border-radius: 999px;
+          text-decoration: none;
+          font-size: 1.05rem;
+          font-weight: 500;
+          color: white;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .nav-list li:hover a {
+          background-color: whitesmoke;
+          color: black;
+        }
+
+        main {
+          padding: 20px;
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
+
+        .bmi-container {
+          background-color: #f2f2f2;
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 500px;
+          margin: 20px auto;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bmi-container input {
+          padding: 12px;
+          font-size: 16px;
+          width: 100%;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        .bmi-container button {
+          padding: 12px 20px;
+          background-color: #00a2c6;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          width: 100%;
+        }
+
+        .bmi-container button:hover {
+          background-color: #008c9e;
+        }
+
+        .result {
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .result span {
+          font-weight: bold;
+        }
+
+        @media screen and (max-width: 1200px) {
+          main {
+            flex-flow: column nowrap;
+          }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="jumbotron">
+          <h1>BMI CHECK</h1>
+          <p>"Know Your BMI, Know Yourself!"</p>
+        </div>
+    
+        <nav class="nav-list" >
+          <ul>
+            <li><a href="SlimEdgePAS.html">Home</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+      <section id="bmi" class="bmi-container">
+        <h2>Check Your BMI</h2>
+        <label for="berat">Berat Badan (kg):</label>
+        <input type="number" id="berat" placeholder="Masukkan Berat Badan" required />
+        
+        <label for="tinggi">Tinggi Badan (cm):</label>
+        <input type="number" id="tinggi" placeholder="Masukkan Tinggi Badan" required />
+        
+        <button onclick="calculateBMI()">Check BMI</button>
+        
+        <div class="result" id="result"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Developed by Zaky Aryasatya Adinata&#169; 2024, SMK Raden Umar Said</p>
+    </footer>
+
+    <script>
+        function calculateBMI() {
+          var berat = parseFloat(document.getElementById('berat').value);
+          var tinggi = parseFloat(document.getElementById('tinggi').value) / 100; 
+          
+          if (!berat || !tinggi) {
+            alert("Tolong Isi Berat Dan Tinggi");
+            return;
+          }
+
+          var bmi = berat / (tinggi * tinggi);
+          var resultText = "BMI Kamu Adalah " + bmi.toFixed(2) + ". ";
+
+          if (bmi < 18.5) {
+            resultText += "Kamu Kurus, Usahakan Makan Makanan Yang Bergizi Lebih Banyak Lagi";
+          } else if (bmi >= 18.5 && bmi < 24.9) {
+            resultText += "Kamu Normal, Harus Tetap Konsisten Berat Badannya!";
+          } else if (bmi >= 25 && bmi < 29.9) {
+            resultText += "Kamu Berlebihan Berat Badannya, Usahakan Porsi Makan Di atur dan diimbangi oleh cardio";
+          } else {
+            resultText += "Kamu Obesitas, Kamu Harus Diet Karbo, Gula dan seminggu full harus cardio";
+          }
+
+          document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;  
+}
+ 
+body {
+  font-family: 'Quicksand', sans-serif;
+ 
+  margin: 0;
+  padding: 0;
+  
+}
+
+h2,
+h3 {
+  color: #00a2c6;
+}
+ 
+footer {
+  padding: 20px;
+  color: white;
+  background-color:  #00597e;
+ 
+  text-align: center;
+  font-weight: bold;
+}
+ 
+
+
+.jumbotron {
+  font-size: 2rem;
+  padding: 203px;
+  background-color:#314860;
+  align-items: center;
+  text-align: center;
+  color: white;
+
+}
+#home {
+    padding-top: 70px;  
+    margin-top: -70px;
+}
+.nav-list {
+  background-color: #00597e;
+  padding: 5px;
+ 
+  position: sticky;
+  top: 0;
+}
+ .nav-list ul {
+  padding-left: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 2rem 1rem;
+}
+.nav-list li {  
+  list-style-type: none;
+}
+
+.nav-list li a {
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: white;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-list li:hover a {
+  background-color: whitesmoke;
+  color: black;
+}
+
+main {
+  padding: 20px;
+ 
+  display: flex;
+  gap: 1.5rem;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.container {
+  width: 100%;
+}
+.keseluruhan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.content {
+  flex: 1;
+  padding-top: 50px;
+}
+.isi {
+  margin-bottom: 2rem;
+}
+
+aside {
+  flex: 0;
+}
+header {
+  display: inline;
+}
+.gambar-isi img {
+ width: 100%;
+ height: auto;
+ max-width: 400px;
+
+}
+.gambar-isi {
+  flex: 0 0 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+ 
+  padding: 20px;
+}
+.first {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .keseluruhan {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gambar-isi{
+    flex: 1;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  main {
+    flex-flow: column nowrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+  }
+
+}
